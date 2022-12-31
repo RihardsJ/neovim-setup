@@ -38,10 +38,12 @@ end
 
 local on_attach = function(client, buffer)
  local bufopts = { noremap=true, silent=true, buffer=buffer }
+
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gl', vim.diagnostic.open_float, bufopts)
 end
 
 -- Set up completion using nvim_cmp with LSP source

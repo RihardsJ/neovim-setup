@@ -1,3 +1,3 @@
-require"settings.keymaps"
-require"settings.configs"
-require"plugins"
+require("settings.keymaps")
+require("settings.configs")
+require("plugins")

@@ -19,11 +19,11 @@ vim.g.maplocalleader = " "
 
 -- == Normal == --
 -- Increment/decrement
-keymap('n', '+', '<C-a>', opts)
-keymap('n', '-', '<C-x>', opts)
+keymap("n", "+", "<C-a>", opts)
+keymap("n", "-", "<C-x>", opts)
 
 -- Select all
-keymap('n', '<C-a>', 'gg<S-v>G', opts)
+keymap("n", "<C-a>", "gg<S-v>G", opts)
 
 -- Remap space as <leader>
 keymap("", "<Space>", "<Nop>", opts)
@@ -65,3 +65,7 @@ keymap("v", "p", '"_dP', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+-- Split window
+keymap("n", "ss", ":split<Return><C-w>w", opts)
+keymap("n", "sv", ":vsplit<Return><C-w>w", opts)

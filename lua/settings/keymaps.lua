@@ -49,6 +49,10 @@ keymap("n", "<S-h>", ":bprev<CR>", opts)
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
+-- Split window
+keymap("n", "ss", ":split<Return><C-w>w", opts)
+keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
+
 -- == Visual == --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -66,6 +70,9 @@ keymap("v", "p", '"_dP', opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
--- Split window
-keymap("n", "ss", ":split<Return><C-w>w", opts)
-keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
+-- == Terminal == --
+keymap("t", "<ESC>", "<C-\\><C-n>", opts)
+keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)
+keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
+keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
+keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)

@@ -40,6 +40,7 @@ local keymaps = {
 	},
 	F = {
 		name = "Find",
+		k = { "<Cmd>Telescope keymaps<Cr>", "keymaps" },
 		s = { "<Cmd>Telescope live_grep theme=ivy<Cr>", "string" },
 		m = { "<Cmd>Telescope man_pages<Cr>", "man page" },
 		p = { "<Cmd>Telescope project<Cr>", "project" },

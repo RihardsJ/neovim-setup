@@ -101,6 +101,13 @@ require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use("theHamsta/nvim-dap-virtual-text")
+	use("mfussenegger/nvim-dap-python")
+
+	use({ "dinhhuy258/git.nvim" })
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -71,12 +71,13 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- == Terminal == --
-keymap("t", "<ESC>", "<C-\\><C-n>", opts)
+-- Switch from terminal to normal mode
+keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
 -- Open/Close terminal buffer
 keymap("n", "<C-\\>", ":10split term://zsh<CR>", opts)
-keymap("t", "<C-\\>", "<C-\\><C-n>:bd!<CR>", opts)
+keymap("t", "<C-\\>", "<C-\\><C-n>:bd!<CR>", term_opts)
 -- Better naviagtion for terminal pane
-keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)
-keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
-keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
-keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)
+keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", term_opts)
+keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", term_opts)
+keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", term_opts)
+keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", term_opts)

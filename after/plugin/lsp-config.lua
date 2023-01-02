@@ -43,7 +43,7 @@ local on_attach = function(client, buffer)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	vim.keymap.set("n", "rn", vim.lsp.buf.rename, bufopts)
+	vim.keymap.set("n", "gr", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
 end
 

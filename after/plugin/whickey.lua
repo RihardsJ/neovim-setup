@@ -33,7 +33,6 @@ local keymaps = {
 	["r"] = { "<Cmd>Telescope oldfiles theme=dropdown previewer=false<Cr>", "Recent Files" },
 	["f"] = { "<Cmd>lua vim.lsp.buf.format()<Cr>", "format" },
 	["nn"] = { "<Cmd>NoNeckPain<Cr>", "no neck pain" },
-	["t"] = { "<Cmd>10split term://zsh<Cr>", "terminal" },
 	B = {
 		name = "Buffer",
 		l = { "<Cmd>Telescope buffers<Cr>", "list" },

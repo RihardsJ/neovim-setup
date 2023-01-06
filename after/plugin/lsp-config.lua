@@ -22,7 +22,7 @@ if not mason_lsp_ok then
 	return
 end
 
-local language_servers = { "bashls", "cssls", "eslint", "html", "jsonls", "pyright", "sumneko_lua", "tsserver" }
+local language_servers = { "bashls", "cssls", "html", "jsonls", "pyright", "sumneko_lua", "tsserver" }
 
 mason_lsp.setup({
 	ensure_installed = language_servers,
@@ -94,7 +94,7 @@ vim.diagnostic.config({
 		focusable = true,
 		style = "minimal",
 		border = "rounded",
-		source = "if_many",
+		source = true,
 		header = "",
 		prefix = "",
 	},

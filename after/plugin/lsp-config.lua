@@ -71,7 +71,7 @@ for _, server in pairs(language_servers) do
 			},
 		}
 	elseif server == "tsserver" then
-		configs.filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+		configs.root_dir = lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
 	elseif server == "eslint" then
 		configs.root_dir = lsp.util.root_pattern(
 			".eslintrc",

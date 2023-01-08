@@ -19,14 +19,13 @@ local options = {
 	nowait = false, -- use `nowait` when creating keymaps
 }
 
-local ToggleNertw = require("utils.nertw-toggle")
 local keymaps = {
 	["w"] = { "<Cmd>update!<CR>", "Save" },
 	["q"] = { "<Cmd>q!<CR>", "Quit" },
 	["c"] = { "<Cmd>bd!<CR>", "Close" },
 	["C"] = { "<Cmd>%bd|e#|bd#<CR>", "Close Others" },
 	["a"] = { "<Cmd>Alpha<CR>", "Alpha" },
-	["e"] = { ToggleNertw, "Explorer" },
+	["e"] = { "<Cmd>Telescop file_browser<CR>", "Explorer" },
 	["m"] = { "<Cmd>Mason<CR>", "Mason" },
 	["h"] = { "<Cmd>Telescope command_history theme=dropdown<CR>", "History" },
 	["p"] = { "<Cmd>Telescope find_files theme=dropdown<CR>", "Open File" },

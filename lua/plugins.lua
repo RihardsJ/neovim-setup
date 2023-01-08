@@ -57,6 +57,15 @@ require("packer").startup(function(use)
 		end,
 	})
 	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				show_hidden = true,
+			})
+		end,
+	})
+
+	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
 		requires = {
@@ -64,6 +73,7 @@ require("packer").startup(function(use)
 			"LinArcX/telescope-env.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-project.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
 		},
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -73,6 +83,7 @@ require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("onsails/lspkind-nvim")
+
 	use({
 		"hrsh7th/nvim-cmp",
 		wants = { "LuaSnip" },
@@ -101,14 +112,17 @@ require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
+
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("theHamsta/nvim-dap-virtual-text")
 	use("mfussenegger/nvim-dap-python")
+	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "dinhhuy258/git.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

@@ -63,8 +63,8 @@ local keymaps = {
 	},
 	G = {
 		name = "Git",
-		d = { "<CMD>DiffviewOpen<CR>", "diffview" },
-		c = { "<CMD>DiffviewClose<CR>", "close" },
+		o = { "<CMD>DiffviewOpen<CR>", "open diffview" },
+		c = { "<CMD>DiffviewClose<CR>", "close diffview" },
 		l = { "<CMD>DiffviewLog<CR>", "log" },
 		h = { "<CMD>DiffviewFileHistory<CR>", "file history" },
 		f = { "<CMD>DiffviewFileHistory %<CR>", "current file history" },

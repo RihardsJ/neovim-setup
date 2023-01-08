@@ -31,6 +31,7 @@ local keymaps = {
 	["p"] = { "<Cmd>Telescope find_files theme=dropdown<CR>", "Open File" },
 	["r"] = { "<Cmd>Telescope oldfiles theme=dropdown previewer=false<CR>", "Recent Files" },
 	["f"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "format" },
+	["t"] = { "<Cmd>ToggleTerm<CR>", "terminal" },
 	["nn"] = { "<Cmd>NoNeckPain<CR>", "no neck pain" },
 	B = {
 		name = "Buffer",

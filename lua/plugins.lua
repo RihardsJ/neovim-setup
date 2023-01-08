@@ -122,6 +122,7 @@ require("packer").startup(function(use)
 	use({ "dinhhuy258/git.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
+	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

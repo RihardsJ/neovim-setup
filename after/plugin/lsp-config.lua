@@ -23,7 +23,7 @@ if not mason_lsp_ok then
 end
 
 local language_servers =
-	{ "bashls", "eslint", "cssls", "html", "jsonls", "quick_lint_js", "pyright", "sumneko_lua", "tsserver" }
+	{ "astro", "bashls", "eslint", "cssls", "html", "jsonls", "quick_lint_js", "pyright", "sumneko_lua", "tsserver" }
 
 mason_lsp.setup({
 	ensure_installed = language_servers,

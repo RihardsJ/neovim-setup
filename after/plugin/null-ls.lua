@@ -19,6 +19,7 @@ null_ls.setup({
 		formatting.stylua,
 		diagnostics.eslint_d.with({
 			diagnostics_format = "[eslint] #{m}\n(#{c})",
+			only_local = "node_modules/.bin",
 		}),
 	},
 	on_attach = function(client, bufnr)

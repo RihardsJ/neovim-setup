@@ -22,7 +22,8 @@ if not mason_lsp_ok then
 	return
 end
 
-local language_servers = { "bashls", "cssls", "eslint", "html", "jsonls", "pyright", "sumneko_lua", "tsserver" }
+local language_servers =
+	{ "astro", "bashls", "eslint", "cssls", "html", "jsonls", "quick_lint_js", "pyright", "sumneko_lua", "tsserver" }
 
 mason_lsp.setup({
 	ensure_installed = language_servers,
@@ -51,30 +52,37 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, server in pairs(language_servers) do
+	local configs = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
 	if server == "sumneko_lua" then
-		lsp[server].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					diagnostics = {
-						-- Get the language server to recognize the `vim` global
-						globals = { "vim" },
-					},
-					workspace = {
-						-- Make the server aware of Neovim runtime files
-						library = vim.api.nvim_get_runtime_file("", true),
-						checkThirdParty = false,
-					},
+		configs.settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
+				workspace = {
+					-- Make the server aware of Neovim runtime files
+					library = vim.api.nvim_get_runtime_file("", true),
+					checkThirdParty = false,
 				},
 			},
-		})
-	else
-		lsp[server].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
+		}
+	elseif server == "tsserver" then
+		configs.root_dir = lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")
+	elseif server == "eslint" then
+		configs.root_dir = lsp.util.root_pattern(
+			".eslintrc",
+			".eslintrc.js",
+			".eslintrc.cjs",
+			".eslintrc.yaml",
+			".eslintrc.yml",
+			".eslintrc.json"
+		)
 	end
+	lsp[server].setup(configs)
 end
 
 -- Diagnosymbols in the sign column (gutter)
@@ -94,7 +102,7 @@ vim.diagnostic.config({
 		focusable = true,
 		style = "minimal",
 		border = "rounded",
-		source = "if_many",
+		source = true,
 		header = "",
 		prefix = "",
 	},

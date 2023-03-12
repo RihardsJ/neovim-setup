@@ -75,7 +75,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
 -- Open/Close terminal buffer
 keymap("n", "<C-\\>", ":10split term://zsh<CR>", opts)
-keymap("t", "<C-\\>", "<C-\\><C-n>:bd!<CR>", term_opts)
 -- Better naviagtion for terminal pane
 keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", term_opts)

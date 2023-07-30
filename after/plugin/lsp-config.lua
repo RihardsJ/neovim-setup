@@ -23,7 +23,7 @@ if not mason_lsp_ok then
 end
 
 local language_servers =
-	{ "astro", "bashls", "eslint", "cssls", "html", "jsonls", "quick_lint_js", "pyright", "sumneko_lua", "tsserver" }
+	{ "astro", "bashls", "eslint", "cssls", "html", "jsonls", "quick_lint_js", "pyright", "lua_ls", "tsserver" }
 
 mason_lsp.setup({
 	ensure_installed = language_servers,
@@ -56,7 +56,7 @@ for _, server in pairs(language_servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	}
-	if server == "sumneko_lua" then
+	if server == "lua_ls" then
 		configs.settings = {
 			Lua = {
 				diagnostics = {

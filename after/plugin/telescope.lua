@@ -17,6 +17,7 @@ telescope.setup({
 			grouped = true,
 			hidden = true,
 			initial_mode = "normal",
+			path = "%:p:h select_buffer=true",
 		},
 	},
 })

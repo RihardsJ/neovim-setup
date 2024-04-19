@@ -4,6 +4,4 @@ if not status_ok then
 	return
 end
 
-toggleterm.setup({
-	autochdir = true,
-})
+toggleterm.setup()

@@ -74,6 +74,7 @@ require("packer").startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-project.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
+			"nvim-telescope/telescope-live-grep-args.nvim",
 		},
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })

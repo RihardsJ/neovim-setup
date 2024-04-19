@@ -49,10 +49,6 @@ keymap("n", "<S-h>", ":bprev<CR>", opts)
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
--- Split window
-keymap("n", "ss", ":split<Return><C-w>w", opts)
-keymap("n", "sv", ":vsplit<Return><C-w>w", opts)
-
 -- == Visual == --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -83,4 +79,4 @@ keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", term_opts)
 
 -- == Copilot == --
 vim.cmd("let g:copilot_no_tab_map = v:true")
-vim.cmd('imap <silent><script><expr> <C-l> copilot#Accept("")')
+vim.cmd('imap <silent><script><expr> <C-j> copilot#Accept("")')

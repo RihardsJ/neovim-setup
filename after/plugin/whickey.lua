@@ -30,13 +30,17 @@ local keymaps = {
 	["h"] = { "<Cmd>Telescope command_history theme=dropdown<CR>", "History" },
 	["p"] = { "<Cmd>Telescope find_files theme=dropdown<CR>", "Open File" },
 	["r"] = { "<Cmd>Telescope oldfiles theme=dropdown previewer=false<CR>", "Recent Files" },
-	["f"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "format" },
+	["F"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "format" },
 	["t"] = { "<Cmd>ToggleTerm<CR>", "terminal" },
 	["nn"] = { "<Cmd>NoNeckPain<CR>", "no neck pain" },
-	B = {
+	["ff"] = { "<Cmd>Telescope live_grep_args theme=ivy<CR>", "string" },
+
+	b = {
 		name = "Buffer",
 		l = { "<Cmd>Telescope buffers<CR>", "list" },
 		n = { "<Cmd>enew<CR>", "open new" },
+		h = { "<Cmd>split<CR><C-w>w<CR>:b#<CR><C-w>p<CR>", "split horizontaly" },
+		v = { "<Cmd>vsplit<CR><C-w>w<CR>:b#<CR><C-w>p<CR>", "split verticaly" },
 	},
 	d = {
 		name = "Debugger",
@@ -52,10 +56,9 @@ local keymaps = {
 		o = { "<Cmd>lua require'dap'.repl.open()<CR>", "open repl" },
 		l = { "<Cmd>lua require'dap'.run_last()<CR>", "run last" },
 	},
-	F = {
+	f = {
 		name = "Find",
 		k = { "<Cmd>Telescope keymaps<CR>", "keymaps" },
-		s = { "<Cmd>Telescope live_grep theme=ivy<CR>", "string" },
 		m = { "<Cmd>Telescope man_pages<CR>", "man page" },
 		p = { "<Cmd>Telescope project<CR>", "project" },
 		r = { "<Cmd>Telescope repo list<CR>", "repo" },
@@ -70,7 +73,7 @@ local keymaps = {
 		f = { "<CMD>DiffviewFileHistory %<CR>", "current file history" },
 	},
 	P = {
-		name = "Packer",
+		name = "Plugins",
 		c = { "<Cmd>PackerCompile<CR>", "compile" },
 		i = { "<Cmd>PackerInstall<CR>", "install" },
 		s = { "<Cmd>PackerSync<CR>", "sync" },

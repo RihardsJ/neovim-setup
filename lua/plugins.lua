@@ -72,9 +72,9 @@ require("packer").startup(function(use)
 			"cljoly/telescope-repo.nvim",
 			"LinArcX/telescope-env.nvim",
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-project.nvim",
 			"nvim-telescope/telescope-file-browser.nvim",
 			"nvim-telescope/telescope-live-grep-args.nvim",
+			"nvim-telescope/telescope-project.nvim",
 		},
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })

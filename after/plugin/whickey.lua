@@ -64,10 +64,10 @@ local keymaps = {
 		r = { "<Cmd>Telescope repo list<CR>", "repo" },
 		e = { "<Cmd>Telescope env<CR>", "env" },
 	},
-	G = {
+	g = {
 		name = "Git",
-		o = { "<CMD>DiffviewOpen<CR>", "open diffview" },
-		c = { "<CMD>DiffviewClose<CR>", "close diffview" },
+		d = { "<CMD>DiffviewOpen<CR>", "open diffview" },
+		D = { "<CMD>DiffviewClose<CR>", "close diffview" },
 		l = { "<CMD>DiffviewLog<CR>", "log" },
 		h = { "<CMD>DiffviewFileHistory<CR>", "file history" },
 		f = { "<CMD>DiffviewFileHistory %<CR>", "current file history" },

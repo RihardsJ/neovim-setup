@@ -32,6 +32,7 @@ local keymaps = {
 	["r"] = { "<Cmd>Telescope oldfiles theme=dropdown previewer=false<CR>", "Recent Files" },
 	["F"] = { "<Cmd>lua vim.lsp.buf.format()<CR>", "format" },
 	["t"] = { "<Cmd>ToggleTerm<CR>", "terminal" },
+	["T"] = { "<Cmd>vsplit | terminal<CR>", "terminal buffer" },
 	["nn"] = { "<Cmd>NoNeckPain<CR>", "no neck pain" },
 	["ff"] = { "<Cmd>Telescope live_grep_args theme=ivy<CR>", "string" },
 

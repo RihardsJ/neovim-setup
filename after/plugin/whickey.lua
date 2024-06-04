@@ -67,7 +67,7 @@ local keymaps = {
 	},
 	g = {
 		name = "Git",
-		d = { ToggleDiffView(), "toggle diffview" },
+		d = { "<CMD>lua ToggleDiffView()<CR>", "toggle diffview" },
 		l = { "<CMD>DiffviewLog<CR>", "log" },
 		h = { "<CMD>DiffviewFileHistory<CR>", "file history" },
 		f = { "<CMD>DiffviewFileHistory %<CR>", "current file history" },

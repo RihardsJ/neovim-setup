@@ -24,6 +24,9 @@ ts_configs.setup({
 		enable = true,
 	},
 	additional_vim_regex_highlighting = false,
+	sync_install = false,
+	ignore_install = {},
+	modules = {},
 })
 
 local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

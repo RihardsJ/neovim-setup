@@ -8,3 +8,8 @@ diff_view.setup({
 		listing_style = "list", -- One of 'list' or 'tree'
 	},
 })
+
+-- == Refresh diff_view after commit == --
+vim.cmd([[
+  autocmd BufWritePost * DiffviewRefresh
+]])

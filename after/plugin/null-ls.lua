@@ -13,13 +13,33 @@ local diagnostics = null_ls.builtins.diagnostics
 -- local completion = null_ls.builtins.completion
 
 null_ls.setup({
+	debug = true,
 	sources = {
-		formatting.prettierd,
-		formatting.fixjson,
 		formatting.stylua,
-		diagnostics.eslint_d.with({
-			diagnostics_format = "[eslint] #{m}\n(#{c})",
-			only_local = "node_modules/.bin",
+		formatting.prettierd.with({
+			disabled_filetypes = {
+				"markdown",
+				"md",
+			},
+		}),
+		require("none-ls.formatting.eslint_d").with({
+			disabled_filetypes = {
+				"markdown",
+				"md",
+			},
+		}),
+		formatting.stylua,
+		require("none-ls.diagnostics.eslint_d").with({
+			condition = function(utils)
+				return utils.root_has_file({
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc",
+					"eslint.config.js",
+					"eslint.config.mjs",
+					"eslint.config.cjs",
+				})
+			end,
 		}),
 	},
 	on_attach = function(client, bufnr)
@@ -29,7 +49,6 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- vim.lsp.buf.format({ bufnr = bufnr })
 					vim.lsp.buf.format({
 						bufnr = bufnr,
 						filter = function(client)

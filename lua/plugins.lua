@@ -103,10 +103,11 @@ require("packer").startup(function(use)
 		},
 	})
 	use({
-		"jose-elias-alvarez/null-ls.nvim",
+		"nvimtools/none-ls.nvim",
 		requires = {
-			"nvim-lua/plenary.nvim",
-		},
+      "nvimtools/none-ls-extras.nvim",
+      "gbprod/none-ls-shellcheck.nvim",
+    }
 	})
 	use({
 		"williamboman/mason.nvim",

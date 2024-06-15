@@ -4,12 +4,11 @@ if not status_dap then
 	return
 end
 
--- / Logs path: ./config/cache/nvim/dap.log
-dap.set_log_level("DEBUG")
-
+-- == DAP UI == --
+-- Setup virtual text to show in dap-ui
 require("nvim-dap-virtual-text").setup({})
 
--- == Listeners == --
+-- Automatically open dap ui when debugger is launched
 local dapui = require("dapui")
 dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -22,48 +21,60 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
 
--- == Signs == --
+-- == DAP CONFIGS == --
+-- Set log level. Options: ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"] (default "INFO")
+dap.set_log_level("DEBUG") -- see logs with :DapShowLog
+
+-- SIGNS --
 local set_sign = vim.fn.sign_define
 set_sign("DapBreakpoint", {
-	text = "🔴",
+	text = "",
 	texthl = "LspDiagnosticsSignError",
 	linehl = "",
 	numhl = "",
 })
 set_sign("DapStopped", {
-	text = "🟢",
+	text = "",
 	texthl = "LspDiagnosticsSignError",
 	linehl = "",
 	numhl = "",
 })
 set_sign("DapBreakpointRejected", {
-	text = "⚪",
+	text = "",
 	texthl = "LspDiagnosticsSignError",
 	linehl = "",
 	numhl = "",
 })
 
--- == Keymaps == --
+-- Keymaps --
 local opts = { noremap = true, silent = true }
 vim.keymap.set({ "n", "i", "v" }, "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
-vim.keymap.set({ "n", "i", "v" }, "<F6>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+vim.keymap.set({ "n", "i", "v" }, "<F9>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
 vim.keymap.set({ "n", "i", "v" }, "<F7>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 vim.keymap.set({ "n", "i", "v" }, "<F8>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
-vim.keymap.set({ "n", "i", "v" }, "<F9>", "<Cmd>lua require'dap'.restart()<CR>", opts)
+vim.keymap.set({ "n", "i", "v" }, "<F11>", "<Cmd>lua require'dap'.restart()<CR>", opts)
 vim.keymap.set({ "n", "i", "v" }, "<F12>", "<Cmd>lua require'dap'.close() require'dapui'.close()<CR>", opts)
 
 -- == DAP server configurations == --
--- Python
-require("dap-python").setup("~/.config/local/share/nvim/mason/packages/debugpy/venv/bin/python")
+local PACKAGES_PATH = vim.fn.stdpath("data") .. "/mason/packages/"
+local DEBUGGER_PATH = {
+	JAVASCRIPT = PACKAGES_PATH .. "js-debug-adapter/js-debug/src/dapDebugServer.js",
+}
+
+print('DEBUGGER_PATH["JAVASCRIPT"]: ' .. DEBUGGER_PATH.JAVASCRIPT)
 -- JavaScript
-require("dap-vscode-js").setup({
-	node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-	debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
-})
+dap.adapters["pwa-node"] = {
+	type = "server",
+	host = "localhost",
+	port = "${port}",
+	executable = {
+		command = "node",
+		args = { DEBUGGER_PATH.JAVASCRIPT, "${port}" },
+	},
+}
 
 for _, language in ipairs({ "typescript", "javascript" }) do
-	require("dap").configurations[language] = {
+	dap.configurations[language] = {
 		{
 			type = "pwa-node",
 			request = "launch",
@@ -77,15 +88,8 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 		},
 		{
 			type = "pwa-node",
-			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
-		},
-		{
-			type = "pwa-node",
 			request = "launch",
-			name = "Debug Jest Tests",
+			name = "Launch Jest test file",
 			runtimeExecutable = "node",
 			runtimeArgs = {
 				"./node_modules/jest/bin/jest.js",
@@ -100,11 +104,13 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 				"!/node_modules/**",
 			},
 		},
-	}
-end
-
-for _, language in ipairs({ "typescriptreact", "javascriptreact" }) do
-	require("dap").configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
 		{
 			type = "pwa-chrome",
 			name = "Attach - Remote Debugging",

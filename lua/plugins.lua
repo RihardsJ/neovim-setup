@@ -105,9 +105,9 @@ require("packer").startup(function(use)
 	use({
 		"nvimtools/none-ls.nvim",
 		requires = {
-      "nvimtools/none-ls-extras.nvim",
-      "gbprod/none-ls-shellcheck.nvim",
-    }
+			"nvimtools/none-ls-extras.nvim",
+			"gbprod/none-ls-shellcheck.nvim",
+		},
 	})
 	use({
 		"williamboman/mason.nvim",
@@ -118,8 +118,8 @@ require("packer").startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 	use("theHamsta/nvim-dap-virtual-text")
-	use("mfussenegger/nvim-dap-python")
-	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+	-- use("mfussenegger/nvim-dap-python")
+	-- use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "dinhhuy258/git.nvim" })
 	use({ "lewis6991/gitsigns.nvim" })

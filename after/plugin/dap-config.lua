@@ -23,7 +23,7 @@ end
 
 -- == DAP CONFIGS == --
 -- Set log level. Options: ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"] (default "INFO")
-dap.set_log_level("DEBUG") -- see logs with :DapShowLog
+dap.set_log_level("TRACE") -- see logs with :DapShowLog
 
 -- SIGNS --
 local set_sign = vim.fn.sign_define
@@ -61,7 +61,6 @@ local DEBUGGER_PATH = {
 	JAVASCRIPT = PACKAGES_PATH .. "js-debug-adapter/js-debug/src/dapDebugServer.js",
 }
 
-print('DEBUGGER_PATH["JAVASCRIPT"]: ' .. DEBUGGER_PATH.JAVASCRIPT)
 -- JavaScript
 dap.adapters["pwa-node"] = {
 	type = "server",
@@ -107,9 +106,17 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 		{
 			type = "pwa-node",
 			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
+			name = "Attach (run node application with --inspect flag)",
+			address = "localhost",
+			port = 9229,
 			cwd = "${workspaceFolder}",
+			sourceMaps = true,
+		},
+		{
+			type = "pwa-chrome",
+			name = "Launch Chrome",
+			request = "launch",
+			url = "http://localhost:3000",
 		},
 		{
 			type = "pwa-chrome",
@@ -121,12 +128,6 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 			protocol = "inspector",
 			port = 9222,
 			webRoot = "${workspaceFolder}",
-		},
-		{
-			type = "pwa-chrome",
-			name = "Launch Chrome",
-			request = "launch",
-			url = "http://localhost:3000",
 		},
 	}
 end

@@ -22,7 +22,7 @@ local options = {
 local keymaps = {
 	["w"] = { "<Cmd>update!<CR>", "Save" },
 	["q"] = { "<Cmd>q!<CR>", "Quit" },
-	["c"] = { "<Cmd>bd!<CR>", "Close" },
+	["c"] = { "<CMD>lua BufferDelete()<CR>", "Close" }, -- Keeps split window layout when closing buffer
 	["C"] = { "<Cmd>%bd|e#|bd#<CR>", "Close Others" },
 	["a"] = { "<Cmd>Alpha<CR>", "Alpha" },
 	["e"] = { "<Cmd>Telescop file_browser<CR>", "Explorer" },
@@ -88,12 +88,38 @@ whichkey.register(keymaps, options)
 -- == Helper functions == --
 
 function ToggleDiffView()
-	print("ToggleDiffView executed")
 	if next(require("diffview.lib").views) == nil then
 		-- Open diff view if it's not open
 		vim.cmd("DiffviewOpen")
 	else
 		-- Close diff view if it's already open
 		vim.cmd("DiffviewClose")
+	end
+end
+
+function BufferDelete()
+	local current_buffer = vim.api.nvim_get_current_buf()
+
+	if vim.api.nvim_get_option_value("modified", { buf = current_buffer }) then
+		local choice = vim.fn.confirm("Buffer is modified. Save changes?", "&Yes\n&No\n&Cancel", 1)
+
+		if choice == 1 then
+			vim.cmd("write")
+		elseif choice == 3 then
+			return
+		end
+
+		vim.cmd("bdelete!")
+	else
+		local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+		local total_nr_buffers = #buffers
+
+		if total_nr_buffers == 1 then
+			vim.cmd("bdelete")
+			vim.cmd("enew") -- Create a new empty buffer if no other listed buffer exists
+		else
+			vim.cmd("bprevious")
+			vim.cmd("bdelete #")
+		end
 	end
 end

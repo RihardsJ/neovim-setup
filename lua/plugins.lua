@@ -39,7 +39,9 @@ require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	use("goolord/alpha-nvim")
-	use("folke/which-key.nvim")
+	use({ "folke/which-key.nvim", requires = {
+		"echasnovski/mini.nvim",
+	} })
 	use("navarasu/onedark.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",

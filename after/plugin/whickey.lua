@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 whichkey.setup({
-	preset = "classic",
+	preset = "modern",
 	win = {
 		border = "rounded",
 		no_overlap = false,

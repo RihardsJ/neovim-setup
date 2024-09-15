@@ -15,7 +15,7 @@ telescope.setup({
 			theme = "dropdown",
 			hijack_netrw = true,
 			grouped = true,
-			hidden = true,
+			hidden = false,
 			initial_mode = "normal",
 			path = "%:p:h select_buffer=true",
 		},

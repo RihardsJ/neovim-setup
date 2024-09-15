@@ -48,7 +48,7 @@ local on_attach = function(client, buffer)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
 end
 
--- Set up completion using nvim_cmp with LSP source
+-- Setup completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 for _, server in pairs(language_servers) do

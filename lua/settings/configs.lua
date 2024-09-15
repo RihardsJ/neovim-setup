@@ -10,7 +10,7 @@ local options = {
 	title = true,
 
 	scrolloff = 12,
-	sidescrolloff = 120, -- cursor is placed in the middle. works only when wrap is off
+	sidescrolloff = 120, -- cursor is placed in the middle, works only when wrap is off
 	smartindent = true,
 	expandtab = true,
 	wrap = false,
@@ -20,7 +20,7 @@ local options = {
 
 	clipboard = "unnamedplus",
 
-	cdhome = true, -- changed working directory to $HOME if not arguements supplied
+	cdhome = true, -- changed working directory to $HOME if not arguments supplied
 
 	ignorecase = true,
 	smartcase = true,
@@ -29,6 +29,10 @@ local options = {
 	splitright = true,
 
 	timeoutlen = 250,
+
+	spell = true,
+	spelllang = "en_gb",
+	spellsuggest = "best,9",
 }
 
 for k, v in pairs(options) do

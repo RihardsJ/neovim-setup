@@ -129,6 +129,8 @@ require("packer").startup(function(use)
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 
+	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
+
 	use({ "github/copilot.vim" })
 
 	-- Automatically set up your configuration after cloning packer.nvim

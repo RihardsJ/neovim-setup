@@ -128,8 +128,8 @@ require("packer").startup(function(use)
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
-
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
+	use({ "stevearc/dressing.nvim" })
 
 	use({ "github/copilot.vim" })
 

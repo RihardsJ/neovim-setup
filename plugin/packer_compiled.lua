@@ -150,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/rihards/.config/local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/rihards/.config/local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["git.nvim"] = {
     loaded = true,
     path = "/home/rihards/.config/local/share/nvim/site/pack/packer/start/git.nvim",

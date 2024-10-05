@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 whichkey.setup({
-	preset = "classic",
+	preset = "modern",
 	win = {
 		border = "rounded",
 		no_overlap = false,
@@ -21,7 +21,13 @@ whichkey.add({
 		mode = { "n", "v" },
 		{ "<leader>w", "<Cmd>update!<CR>", desc = "Save" },
 		{ "<leader>q", "<Cmd>q!<CR>", desc = "Quit" },
-		{ "<leader>c", BufferDelete, desc = "Close" }, -- Keeps split window layout when closing buffer
+		{
+			"<leader>c",
+			function()
+				BufferDelete()
+			end,
+			desc = "Close",
+		}, -- Keeps split window layout when closing buffer
 		{ "<leader>C", "<Cmd>%bd|e#|bd#<CR>", desc = "Close Others" },
 		{ "<leader>a", "<Cmd>Alpha<CR>", desc = "Alpha" },
 		{ "<leader>e", "<Cmd>Telescop file_browser<CR>", desc = "Explorer" },

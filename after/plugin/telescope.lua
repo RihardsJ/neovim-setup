@@ -6,6 +6,13 @@ end
 
 -- == Setup == --
 telescope.setup({
+	pickers = {
+		buffers = {
+			theme = "dropdown",
+			sort_lastused = true,
+			sort_mru = true,
+		},
+	},
 	extensions = {
 		file_browser = {
 			theme = "dropdown",

@@ -31,6 +31,7 @@ whichkey.add({
 		{ "<leader>F", "<Cmd>lua vim.lsp.buf.format()<CR>", desc = "Format Buffer" },
 		{ "<leader>nn", "<Cmd>NoNeckPain<CR>", desc = "No neck pain" },
 		{ "<leader>m", "<Cmd>Mason<CR>", desc = "Mason" },
+		{ "-", "<Cmd>Oil<CR>", desc = "Open parent directory" },
 		-- Buffer
 		{ "<leader>b", group = "Buffer" },
 		{ "<leader>bl", "<Cmd>Telescope buffers<CR>", desc = "List" },
@@ -55,11 +56,12 @@ whichkey.add({
 		-- Find
 		{ "<leader>f", group = "Find" },
 		{ "<leader>ff", "<Cmd>Telescope live_grep_args theme=ivy<CR>", desc = "String" },
-		{ "<leader>fk", "<Cmd>Telescope keymaps<CR>", desc = "keymap" },
-		{ "<leader>fm", "<Cmd>Telescope man_pages<CR>", desc = "man page" },
-		{ "<leader>fp", "<Cmd>Telescope project<CR>", desc = "project" },
-		{ "<leader>fr", "<Cmd>Telescope repo list<CR>", desc = "repo" },
-		{ "<leader>fe", "<Cmd>Telescope env<CR>", desc = "enviroment variable" },
+		{ "<leader>fk", "<Cmd>Telescope keymaps<CR>", desc = "Keymap" },
+		{ "<leader>fm", "<Cmd>Telescope man_pages<CR>", desc = "Man page" },
+		{ "<leader>fp", "<Cmd>Telescope project<CR>", desc = "Project" },
+		{ "<leader>fr", "<Cmd>Telescope repo list<CR>", desc = "Repo" },
+		{ "<leader>fe", "<Cmd>Telescope env<CR>", desc = "Enviroment variable" },
+		{ "<leader>ft", "<CMD>TodoTelescope<CR>", desc = "Open todo list" },
 		-- Git
 		{ "<leader>g", group = "Git" },
 		{ "<leader>gd", "<CMD>lua ToggleDiffView()<CR>", desc = "Diff" },
@@ -74,7 +76,6 @@ whichkey.add({
 		-- Todo Comments
 		{ "]t", "<CMD>lua require'todo-comments'.jump_next()<CR>", desc = "Next todo comment" },
 		{ "[t", "<CMD>lua require'todo-comments'.jump_prev()<CR>", desc = "Previous todo comment" },
-		{ "<leader>ft", "<CMD>TodoTelescope<CR>", desc = "Open todo list" },
 		-- Terminal
 		{ "<leader>t", "<CMD>ToggleTerm<CR>", desc = "Terminal" },
 	},

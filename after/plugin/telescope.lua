@@ -4,24 +4,28 @@ if not status_ok then
 	return
 end
 
--- == Extensions == --
-
 -- == Setup == --
--- local actions = require"telescope.actions"
-
 telescope.setup({
+	pickers = {
+		buffers = {
+			theme = "dropdown",
+			sort_lastused = true,
+			sort_mru = true,
+		},
+	},
 	extensions = {
 		file_browser = {
 			theme = "dropdown",
 			hijack_netrw = true,
 			grouped = true,
-			hidden = true,
+			hidden = false,
 			initial_mode = "normal",
 			path = "%:p:h select_buffer=true",
 		},
 	},
 })
 
+-- == Extensions == --
 require("telescope").load_extension("env")
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("fzf")

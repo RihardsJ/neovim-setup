@@ -120,16 +120,18 @@ require("packer").startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } })
 	use("theHamsta/nvim-dap-virtual-text")
-	-- use("mfussenegger/nvim-dap-python")
-	-- use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
 
 	use({ "dinhhuy258/git.nvim" })
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "shortcuts/no-neck-pain.nvim", tag = "*" })
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
+	use({ "stevearc/dressing.nvim" })
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "stevearc/oil.nvim" })
 
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
+	use({ "luukvbaal/statuscol.nvim" })
 
 	use({ "github/copilot.vim" })
 

@@ -5,8 +5,8 @@ end
 
 -- Vim buffer settings
 vim.o.foldenable = true
-vim.o.foldcolumn = "auto:9"
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]] -- fold line styling
+vim.o.foldcolumn = "1" -- fold line width
+vim.o.fillchars = [[eob: ,fold: ,foldopen:-,foldsep: ,foldclose:+]] -- fold line styling
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 

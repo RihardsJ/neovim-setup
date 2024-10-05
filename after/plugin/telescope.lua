@@ -4,11 +4,7 @@ if not status_ok then
 	return
 end
 
--- == Extensions == --
-
 -- == Setup == --
--- local actions = require"telescope.actions"
-
 telescope.setup({
 	extensions = {
 		file_browser = {
@@ -22,6 +18,7 @@ telescope.setup({
 	},
 })
 
+-- == Extensions == --
 require("telescope").load_extension("env")
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("fzf")

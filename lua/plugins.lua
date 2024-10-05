@@ -130,8 +130,10 @@ require("packer").startup(function(use)
 	use({ "akinsho/toggleterm.nvim", tag = "v2.*" })
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
 	use({ "stevearc/dressing.nvim" })
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- TODO: add oil
 
-	use({ "github/copilot.vim" })
+	-- use({ "github/copilot.vim" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

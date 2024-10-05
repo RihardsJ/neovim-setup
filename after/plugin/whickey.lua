@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 whichkey.setup({
-	preset = "modern",
+	preset = "classic",
 	win = {
 		border = "rounded",
 		no_overlap = false,
@@ -71,6 +71,10 @@ whichkey.add({
 		{ "<leader>Ps", "<CMD>PackerSync<CR>", desc = "Sync" },
 		{ "<leader>Pu", "<CMD>PackerUpdate<CR>", desc = "Update" },
 		{ "<leader>Pl", "<CMD>PackerStatus<CR>", desc = "List" },
+		-- Todo Comments
+		{ "]t", "<CMD>lua require'todo-comments'.jump_next()<CR>", desc = "Next todo comment" },
+		{ "[t", "<CMD>lua require'todo-comments'.jump_prev()<CR>", desc = "Previous todo comment" },
+		{ "<leader>ft", "<CMD>TodoTelescope<CR>", desc = "Open todo list" },
 		-- Terminal
 		{ "<leader>t", "<CMD>ToggleTerm<CR>", desc = "Terminal" },
 	},

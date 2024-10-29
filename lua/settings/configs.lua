@@ -30,9 +30,7 @@ local options = {
 
 	timeoutlen = 250,
 
-	spell = true,
-	spelllang = "en_gb",
-	spellsuggest = "best,9",
+	laststatus = 3,
 }
 
 for k, v in pairs(options) do

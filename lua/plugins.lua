@@ -133,8 +133,56 @@ require("packer").startup(function(use)
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
 	use({ "luukvbaal/statuscol.nvim" })
 
-	use({ "github/copilot.vim" })
-
+	-- Avante setup
+	use({
+		"yetone/avante.nvim",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- Optional dependencies
+			"echasnovski/mini.nvim",
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
+			-- Image clip pasting
+			{
+				"HakonHarnes/img-clip.nvim",
+				config = function()
+					require("img-clip").setup({
+						opts = {
+							-- recommended settings
+							default = {
+								embed_image_as_base64 = false,
+								prompt_for_file_name = false,
+								drag_and_drop = {
+									insert_mode = true,
+								},
+								-- required for Windows users
+								use_absolute_path = true,
+							},
+						},
+					})
+				end,
+			},
+			-- -- Markdown setup for chat history
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				after = { "nvim-treesitter" },
+				requires = {
+					"echasnovski/mini.nvim",
+					opt = true,
+					config = function()
+						require("render-markdown").setup({
+							opts = {
+								file_types = { "markdown", "Avante" },
+							},
+							ft = { "markdown", "Avante" },
+						})
+					end,
+				},
+			},
+		},
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

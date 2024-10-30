@@ -30,7 +30,7 @@ local options = {
 
 	timeoutlen = 250,
 
-	spell = true,
+	spell = false, -- enable spell checking
 	spelllang = "en_gb",
 	spellsuggest = "best,9",
 }

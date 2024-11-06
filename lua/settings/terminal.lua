@@ -9,3 +9,8 @@ vim.cmd([[
     autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
   augroup END
 ]])
+
+-- Function to check if current buffer is a terminal
+function _G.in_terminal()
+	return vim.bo.buftype == "terminal"
+end

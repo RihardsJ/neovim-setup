@@ -43,8 +43,8 @@ keymap("n", "<Left>", ":vertical resize -1<CR>", opts)
 keymap("n", "<Right>", ":vertical resize +1<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprev<CR>", opts)
+keymap("n", "<S-l>", ":lua if not in_terminal() then vim.cmd('bnext') end<CR>", opts)
+keymap("n", "<S-h>", ":lua if not in_terminal() then vim.cmd('bprev') end<CR>", opts)
 
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
@@ -69,8 +69,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- == Terminal == --
 -- Switch from terminal to normal mode
 keymap("t", "<ESC>", "<C-\\><C-n>", term_opts)
--- Open/Close terminal buffer
-keymap("n", "<C-\\>", ":10split term://zsh<CR>", opts)
 -- Better naviagtion for terminal pane
 keymap("t", "<C-h>", "<C-\\><C-n><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", term_opts)

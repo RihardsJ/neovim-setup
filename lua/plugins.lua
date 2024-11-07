@@ -139,53 +139,41 @@ require("packer").startup(function(use)
 	-- Avante setup
 	use({
 		"yetone/avante.nvim",
-		requires = {
-			"nvim-treesitter/nvim-treesitter",
-			"stevearc/dressing.nvim",
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			--- Optional dependencies
-			"echasnovski/mini.nvim",
-			"zbirenbaum/copilot.lua", -- for providers='copilot'
-			-- Image clip pasting
-			{
-				"HakonHarnes/img-clip.nvim",
-				config = function()
-					require("img-clip").setup({
-						opts = {
-							-- recommended settings
-							default = {
-								embed_image_as_base64 = false,
-								prompt_for_file_name = false,
-								drag_and_drop = {
-									insert_mode = true,
-								},
-								-- required for Windows users
-								use_absolute_path = true,
-							},
-						},
-					})
-				end,
-			},
-			-- -- Markdown setup for chat history
-			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				after = { "nvim-treesitter" },
-				requires = {
-					"echasnovski/mini.nvim",
-					opt = true,
-					config = function()
-						require("render-markdown").setup({
-							opts = {
-								file_types = { "markdown", "Avante" },
-							},
-							ft = { "markdown", "Avante" },
-						})
-					end,
-				},
-			},
-		},
+		run = "make",
 	})
+
+	-- Required dependencies
+	use({ "MunifTanjim/nui.nvim" })
+	-- Optional dependencies
+	use({ "zbirenbaum/copilot.lua" }) -- For providers = 'copilot'
+	-- Dependency with configuration: img-clip.nvim
+	use({
+		"HakonHarnes/img-clip.nvim",
+		config = function()
+			require("img-clip").setup({
+				default = {
+					embed_image_as_base64 = false,
+					prompt_for_file_name = false,
+					drag_and_drop = {
+						insert_mode = true,
+					},
+					use_absolute_path = true,
+				},
+			})
+		end,
+	})
+
+	-- Dependency with configuration: render-markdown.nvim
+	use({
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "markdown", "Avante" },
+		config = function()
+			require("render-markdown").setup({
+				file_types = { "markdown", "Avante" },
+			})
+		end,
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

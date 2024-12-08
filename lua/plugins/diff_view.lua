@@ -4,12 +4,11 @@ vim.cmd([[
 ]])
 
 return {
-  "sindrets/diffview.nvim",
-  dependencies = { { 'nvim-tree/nvim-web-devicons', opts = {} } },
-  opts = {
-    	file_panel = {
-		  listing_style = "list", -- One of 'list' or 'tree'
-	  },
-  }
-
+	"sindrets/diffview.nvim",
+	dependencies = { { "nvim-tree/nvim-web-devicons", opts = {} } },
+	opts = {
+		file_panel = {
+			listing_style = "list", -- One of 'list' or 'tree'
+		},
+	},
 }

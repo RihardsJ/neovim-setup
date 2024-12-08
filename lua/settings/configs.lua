@@ -30,9 +30,11 @@ local options = {
 
 	timeoutlen = 250,
 
-	spell = false, -- enable spell checking
+	spell = false,
 	spelllang = "en_gb",
 	spellsuggest = "best,9",
+
+  mousemoveevent = true,
 }
 
 for k, v in pairs(options) do

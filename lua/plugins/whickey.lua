@@ -6,31 +6,95 @@ local keymaps = {
     end,
     desc = "Buffer Keymaps",
   },
-  { "<leader>w",  "<cmd>w<cr>",                                      desc = "Write" },
-  { "<leader>q",  "<cmd>q<cr>",                                      desc = "Quit" },
-  { "<leader>c",  "<Cmd>BufferClose<CR>",                            desc = "Close" },
-  { "<leader>C",  "<Cmd>BufferCloseAllButCurrent<CR>",               desc = "Close Others" },
-  -- Buffer
-  { "<leader>b",  group = "Buffer" },
-  { "<leader>bl", "<Cmd>Telescope buffers<CR>",                      desc = "List" },
-  { "<leader>bn", "<Cmd>enew<CR>",                                   desc = "New" },
-  { "<leader>bh", "<Cmd>split<CR><C-w>w<CR>:b#<CR><C-w>p<CR>",       desc = "Split horizontaly" },
-  { "<leader>bv", "<Cmd>vsplit<CR><C-w>w<CR>:b#<CR><C-w>p<CR>",      desc = "Split verticaly" },
-  { "<leader>br", "<Cmd>BufferRestore<CR>",                          desc = "Restore" },
+  { "<leader>w", "<cmd>w<cr>",           desc = "Write" },
+  { "<leader>W", "<cmd>wa<cr>",          desc = "Write all" },
+  { "<leader>q", "<cmd>q<cr>",           desc = "Quit" },
+  { "<leader>Q", "<cmd>q!<cr>",          desc = "Force Quit" },
+  { "<leader>c", "<Cmd>BufferClose<CR>", desc = "Close" },
+  {
+    "<leader>C",
+    "<Cmd>BufferCloseAllButCurrent<CR>",
+    desc = "Close Others",
+  },
+  --== Buffers ==--
+  { "<leader>b",  group = "Buffer",                desc = "Buffer" },
+  { "<leader>bn", "<cmd>enew<cr>",                 desc = "New buffer" },
+  { "<leader>bh", "<cmd>split<cr>",                desc = "Split horizontal" },
+  { "<leader>bv", "<cmd>vsplit<cr>",               desc = "Split vertical" },
+  { "<leader>br", "<cmd>BufferRestore<cr>",        desc = "Restore" },
+  { "<leader>bp", "<cmd>BufferPick<cr>",           desc = "Pick" },
+
   -- Buffer navigation
-  { "<A-,>",      "<Cmd>BufferPrevious<CR>" },
-  { "<A-.>",      "<Cmd>BufferNext<CR>" },
-  { "<A-<>",      "<Cmd>BufferMovePrevious<CR>" },
-  { "<A->>",      "<Cmd>BufferMoveNext<CR>" },
-  -- Git
-  { "<leader>g",  group = "Git",                                     desc = "Git" },
-  { "<leader>gd", "<CMD>lua ToggleDiffView()<CR>",                   desc = "Diff" },
-  { "<leader>gl", "<CMD>DiffviewLog<CR>",                            desc = "Log" },
-  { "<leader>gh", "<CMD>DiffviewFileHistory<CR>",                    desc = "History" },
-  { "<leader>gf", "<CMD>DiffviewFileHistory %<CR>",                  desc = "Curent file history" },
-  -- Todo Comments
-  { "]t",         "<CMD>lua require'todo-comments'.jump_next()<CR>", desc = "Next todo comment" },
-  { "[t",         "<CMD>lua require'todo-comments'.jump_prev()<CR>", desc = "Previous todo comment" },
+  { "<A-,>",      "<cmd>BufferPrevious<cr>",       desc = "Previous buffer" },
+  { "<A-.>",      "<cmd>BufferNext<cr>",           desc = "Next buffer" },
+  { "<A-<>",      "<cmd>BufferMovePrevious<cr>",   desc = "Move buffer left" },
+  { "<A->>",      "<cmd>BufferMoveNext<cr>",       desc = "Move buffer right" },
+  --== Git ==--
+  { "<leader>g",  group = "Git",                   desc = "Git" },
+  { "<leader>gd", "<CMD>lua ToggleDiffView()<CR>", desc = "Diff" },
+  { "<leader>gl", "<CMD>DiffviewLog<CR>",          desc = "Log" },
+  { "<leader>gh", "<CMD>DiffviewFileHistory<CR>",  desc = "History" },
+  {
+    "<leader>gf",
+    "<cmd>DiffviewFileHistory %<cr>",
+    desc = "Curent file history",
+  },
+  --== Todo Comments ==--
+  {
+    "]t",
+    "<cmd>lua require'todo-comments'.jump_next()<CR>",
+    desc = "Next todo comment",
+  },
+  {
+    "[t",
+    "<cmd>lua require'todo-comments'.jump_prev()<CR>",
+    desc = "Previous todo comment",
+  },
+  --== Telescope ==--
+  { "<leader>f",  group = "Find",               desc = "Find" },
+  {
+    "<leader>ff",
+    "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+    desc = "Find file",
+  },
+  { "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Find open buffer" },
+  {
+    "<leader>fc",
+    "<cmd>Telescope commands<cr>",
+    desc = "Find command",
+  },
+  {
+    "<leader>fn",
+    "<cmd>Telescope node_modules list<cr>",
+    desc = "Find node module",
+  },
+  {
+    "<leader>ft",
+    "<cmd>TodoTelescope<cr>",
+    desc = "Find todo comment",
+  },
+  {
+    "<leader>fw",
+    "<cmd>Telescope whaler<cr>",
+    desc = "Find directory",
+  },
+
+  {
+    "<leader>p",
+    "<cmd>Telescope find_files hidden=true<cr>",
+    desc = "Open File",
+  },
+  {
+    "<leader>r",
+    "<cmd>Telescope oldfiles<cr>",
+    desc = "Open Recent Files",
+  },
+  -- Misc
+  {
+    "<leader>nn",
+    "<cmd>NoNeckPain<cr>",
+    desc = "No Neck Pain",
+  },
 }
 
 function ToggleDiffView()

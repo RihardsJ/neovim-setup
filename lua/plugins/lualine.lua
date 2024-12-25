@@ -4,6 +4,7 @@ return {
 	opts = {
 		options = {
 			theme = "onedark",
+			globalstatus = true,
 		},
 		sections = {
 			lualine_a = { "mode" },

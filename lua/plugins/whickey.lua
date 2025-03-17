@@ -100,6 +100,11 @@ local keymaps = {
 		desc = "Open File",
 	},
 	{
+		"<leader>P",
+		"<cmd>Telescope project<cr>",
+		desc = "Open Project",
+	},
+	{
 		"<leader>r",
 		"<cmd>Telescope oldfiles<cr>",
 		desc = "Open Recent Files",

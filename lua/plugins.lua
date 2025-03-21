@@ -136,33 +136,16 @@ require("packer").startup(function(use)
 	use({ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } })
 	use({ "luukvbaal/statuscol.nvim" })
 
-	-- Avante setup
 	use({
-		"yetone/avante.nvim",
-		run = "make",
-	})
-
-	-- Required dependencies
-	use({ "MunifTanjim/nui.nvim" })
-	-- Optional dependencies
-	use({ "zbirenbaum/copilot.lua" }) -- For providers = 'copilot'
-	-- Dependency with configuration: img-clip.nvim
-	use({
-		"HakonHarnes/img-clip.nvim",
+		"Exafunction/codeium.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 		config = function()
-			require("img-clip").setup({
-				default = {
-					embed_image_as_base64 = false,
-					prompt_for_file_name = false,
-					drag_and_drop = {
-						insert_mode = true,
-					},
-					use_absolute_path = true,
-				},
-			})
+			require("codeium").setup({})
 		end,
 	})
-
 	-- Dependency with configuration: render-markdown.nvim
 	use({
 		"MeanderingProgrammer/render-markdown.nvim",

@@ -90,11 +90,6 @@ _G.packer_plugins = {
     path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["avante.nvim"] = {
-    loaded = true,
-    path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/avante.nvim",
-    url = "https://github.com/yetone/avante.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -145,10 +140,11 @@ _G.packer_plugins = {
     path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.lua"] = {
+  ["codeium.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcodeium\frequire\0" },
     loaded = true,
-    path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/copilot.lua",
-    url = "https://github.com/zbirenbaum/copilot.lua"
+    path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/codeium.nvim",
+    url = "https://github.com/Exafunction/codeium.nvim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -169,12 +165,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["img-clip.nvim"] = {
-    config = { "\27LJ\2\nÎ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\fdefault\1\0\1\fdefault\0\18drag_and_drop\1\0\1\16insert_mode\2\1\0\4\22use_absolute_path\2\18drag_and_drop\0\25prompt_for_file_name\1\26embed_image_as_base64\1\nsetup\rimg-clip\frequire\0" },
-    loaded = true,
-    path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/img-clip.nvim",
-    url = "https://github.com/HakonHarnes/img-clip.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -220,11 +210,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/Users/rihardsj/.config/local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
@@ -405,28 +390,28 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: img-clip.nvim
-time([[Config for img-clip.nvim]], true)
-try_loadstring("\27LJ\2\nÎ\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\fdefault\1\0\1\fdefault\0\18drag_and_drop\1\0\1\16insert_mode\2\1\0\4\22use_absolute_path\2\18drag_and_drop\0\25prompt_for_file_name\1\26embed_image_as_base64\1\nsetup\rimg-clip\frequire\0", "config", "img-clip.nvim")
-time([[Config for img-clip.nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
 -- Config for: project.nvim
 time([[Config for project.nvim]], true)
 try_loadstring("\27LJ\2\nN\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16manual_mode\2\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
 time([[Config for project.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: codeium.nvim
+time([[Config for codeium.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcodeium\frequire\0", "config", "codeium.nvim")
+time([[Config for codeium.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType Avante ++once lua require("packer.load")({'render-markdown.nvim'}, { ft = "Avante" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'render-markdown.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType Avante ++once lua require("packer.load")({'render-markdown.nvim'}, { ft = "Avante" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 

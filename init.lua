@@ -1,4 +1,5 @@
-require("settings.keymaps")
 require("settings.configs")
+require("settings.keymaps")
+require("settings.rfinder")
 require("settings.terminal")
 require("plugins")

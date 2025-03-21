@@ -31,16 +31,17 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 	}),
+
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-	}, {
 		{ name = "buffer" },
 		{ name = "calc" },
 		{ name = "emoji" },
 		{ name = "path" },
 		{ name = "spell" },
 		{ name = "treesitter" },
+		{ name = "codeium" },
 	}),
 
 	formatting = {
@@ -59,8 +60,6 @@ cmp.setup.cmdline({ ":" }, {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
 		{ name = "path" },
-	},
-	{
 		{ name = "cmdline" },
 	},
 })

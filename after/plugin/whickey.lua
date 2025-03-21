@@ -44,6 +44,7 @@ whichkey.add({
 		{ "<leader>bn", "<Cmd>enew<CR>", desc = "New" },
 		{ "<leader>bh", "<Cmd>split<CR><C-w>w<CR>:b#<CR><C-w>p<CR>", desc = "Split horizontaly" },
 		{ "<leader>bv", "<Cmd>vsplit<CR><C-w>w<CR>:b#<CR><C-w>p<CR>", desc = "Split verticaly" },
+		{ "<leader>bf", "<Cmd>Rfinder<CR>", desc = "Reveal in finder" },
 		-- Debugger
 		{ "<leader>d", group = "Debugger" },
 		{ "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", desc = "Breakpoint" },

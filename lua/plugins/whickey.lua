@@ -8,9 +8,9 @@ local keymaps = {
 	},
 	{ "<leader>w", "<cmd>w<cr>", desc = "Write" },
 	{ "<leader>W", "<cmd>wa<cr>", desc = "Write all" },
-	{ "<leader>q", "<cmd>q<cr>", desc = "Quit" },
+	{ "<leader>q", "<cmd>lua QuitWithPrompt()<cr>", desc = "Quit" },
 	{ "<leader>Q", "<cmd>q!<cr>", desc = "Force Quit" },
-	{ "<leader>c", "<Cmd>BufferClose<CR>", desc = "Close" },
+	{ "<leader>c", "<cmd>lua BufferDelete()<CR>", desc = "Close" },
 	{
 		"<leader>C",
 		"<Cmd>BufferCloseAllButCurrent<CR>",
@@ -37,22 +37,6 @@ local keymaps = {
 		"<leader>gf",
 		"<cmd>DiffviewFileHistory %<cr>",
 		desc = "Curent file history",
-	},
-	--== Rest ==--
-	{
-		"<leader>sr",
-		"<cmd>Rest run<cr>",
-		desc = "Run rest client",
-	},
-	{
-		"<leader>sc",
-		"<cmd>Rest cookies<cr>",
-		desc = "Rest cookies",
-	},
-	{
-		"<leader>se",
-		"<cmd>Rest env select<cr>",
-		desc = "Rest env variables",
 	},
 	--== Todo Comments ==--
 	{
@@ -152,6 +136,21 @@ function BufferDelete()
 			vim.cmd("bdelete #")
 		end
 	end
+end
+
+function QuitWithPrompt()
+    if vim.fn.getbufinfo({ bufmodified = 1 })[1] ~= nil then
+        local choice = vim.fn.confirm("There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 1)
+        if choice == 1 then     -- Yes
+            vim.cmd('wa')
+            vim.cmd('qa')
+        elseif choice == 2 then -- No
+            vim.cmd('qa!')
+        end
+        -- Choice 3 (Cancel) does nothing
+    else
+        vim.cmd('qa')
+    end
 end
 
 return {

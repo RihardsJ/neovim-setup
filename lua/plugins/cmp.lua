@@ -86,6 +86,7 @@ local cmp_configs = function()
 			{ name = "css-variables" },
 			{ name = "fonts", option = { space_filter = "-" } },
 			{ name = "nvim_lsp_signature_help" },
+			{ name = "render-markdown" },
 		}),
 		sorting = {
 			priority_weight = 2,

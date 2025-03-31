@@ -42,10 +42,6 @@ keymap("n", "<Down>", ":resize +1<CR>", opts)
 keymap("n", "<Left>", ":vertical resize -1<CR>", opts)
 keymap("n", "<Right>", ":vertical resize +1<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprev<CR>", opts)
-
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
@@ -77,6 +73,9 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", term_opts)
 
+-- == GrugFar (find selected text) == --
+keymap("v", "fs", ":GrugFar<CR>", opts)
+
 -- == Copilot == --
-vim.cmd("let g:copilot_no_tab_map = v:true")
-vim.cmd('imap <silent><script><expr> <C-j> copilot#Accept("")')
+-- vim.cmd("let g:copilot_no_tab_map = v:true")
+-- vim.cmd('imap <silent><script><expr> <C-j> copilot#Accept("")')

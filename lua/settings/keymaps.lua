@@ -73,6 +73,9 @@ keymap("t", "<C-j>", "<C-\\><C-n><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-n><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-n><C-w>l", term_opts)
 
+-- == GrugFar (find selected text) == --
+keymap("v", "fs", ":GrugFar<CR>", opts)
+
 -- == Copilot == --
-vim.cmd("let g:copilot_no_tab_map = v:true")
-vim.cmd('imap <silent><script><expr> <C-j> copilot#Accept("")')
+-- vim.cmd("let g:copilot_no_tab_map = v:true")
+-- vim.cmd('imap <silent><script><expr> <C-j> copilot#Accept("")')

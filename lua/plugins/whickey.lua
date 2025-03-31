@@ -49,8 +49,15 @@ local keymaps = {
 		"<cmd>lua require'todo-comments'.jump_prev()<CR>",
 		desc = "Previous todo comment",
 	},
-	--== Telescope ==--
+	--== Search ==--
 	{ "<leader>f", group = "Find", desc = "Find" },
+	-- GrugFar --
+	{
+		"<leader>fs",
+		"<cmd>GrugFar<cr>",
+		desc = "Find string",
+	},
+	-- Telescope --
 	{
 		"<leader>ff",
 		"<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
@@ -139,18 +146,18 @@ function BufferDelete()
 end
 
 function QuitWithPrompt()
-    if vim.fn.getbufinfo({ bufmodified = 1 })[1] ~= nil then
-        local choice = vim.fn.confirm("There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 1)
-        if choice == 1 then     -- Yes
-            vim.cmd('wa')
-            vim.cmd('qa')
-        elseif choice == 2 then -- No
-            vim.cmd('qa!')
-        end
-        -- Choice 3 (Cancel) does nothing
-    else
-        vim.cmd('qa')
-    end
+	if vim.fn.getbufinfo({ bufmodified = 1 })[1] ~= nil then
+		local choice = vim.fn.confirm("There are unsaved changes. Save before quitting?", "&Yes\n&No\n&Cancel", 1)
+		if choice == 1 then -- Yes
+			vim.cmd("wa")
+			vim.cmd("qa")
+		elseif choice == 2 then -- No
+			vim.cmd("qa!")
+		end
+		-- Choice 3 (Cancel) does nothing
+	else
+		vim.cmd("qa")
+	end
 end
 
 return {

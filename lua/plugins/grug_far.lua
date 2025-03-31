@@ -1,13 +1,12 @@
 return {
-    'MagicDuck/grug-far.nvim',
-    config = function()
-      -- optional setup call to override plugin options
-      -- alternatively you can set options with vim.g.grug_far = { ... }
-      require('grug-far').setup({
-        -- options, see Configuration section below
-        -- there are no required options atm
-        -- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
-        -- be specified
-      });
-    end
-  }
+	"MagicDuck/grug-far.nvim",
+	config = function()
+		local current_project_root = vim.fn.getcwd()
+		require("grug-far").setup({
+			-- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
+			prefills = {
+				paths = current_project_root,
+			},
+		})
+	end,
+}
